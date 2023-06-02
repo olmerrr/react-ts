@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <TodoItem
-        key="01"
+        key="1"
         id="1"
         completed={false}
         title="test-todo"

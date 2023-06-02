@@ -1,8 +1,6 @@
 import React from "react";
-interface TodoItemProps {
-  id: string,
-  title: string,
-  completed: boolean,
+import {Todo} from "../../types";
+interface TodoItemProps extends Todo{
   style?: React.CSSProperties
 }
 export const TodoItem = (
@@ -15,8 +13,10 @@ export const TodoItem = (
 ) => {
   return (
     <li className="todo-item" id={id}
-        style={{backgroundColor: "yellow",
-          color: "blue", ...style}}>
+        style={{
+          backgroundColor: "yellow",
+          color: "blue", ...style
+    }}>
       <input type="checkbox" checked={completed}/>
       <span>{title}</span>
       <span>&times;</span>

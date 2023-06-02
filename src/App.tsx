@@ -9,7 +9,8 @@ function App() {
         key="01"
         id="1"
         completed={false}
-          title="test-todo"
+        title="test-todo"
+        style={{border: "2px solid white", borderRadius: "2px"}}
       />
     </div>
   );

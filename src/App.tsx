@@ -8,15 +8,12 @@ import {NewTodoForm} from "./components/TodoList/NewTodoForm";
 
 
 function App() {
-  const [text, setText] = useState("");
-
-
   const [todos, setTodos] = useState <Todo[]>([])
 
-  const handleInput = (event:  React.ChangeEvent<HTMLInputElement>):void => {
-      setText(event.target.value)
-  }
-  const addTodo = () => {
+  // const handleInput = (event:  React.ChangeEvent<HTMLInputElement>):void => {
+  //     setText(event.target.value)
+  // }
+  const addTodo = (text: string) => {
 
     const newTodos: Todo = {
       id: new Date().toString(),
@@ -24,7 +21,7 @@ function App() {
       completed: false
     };
     setTodos([newTodos, ...todos])
-    setText("")
+    // setText("")
   }
 
   useEffect(() => {
@@ -45,11 +42,7 @@ function App() {
         style={{border: "2px solid white", borderRadius: "2px"}}
       />
 
-      <NewTodoForm
-        value = {text}
-        onChange={handleInput}
-        handleClick={addTodo}
-      />
+      <NewTodoForm handleClick={addTodo}/>
     </div>
   );
 }

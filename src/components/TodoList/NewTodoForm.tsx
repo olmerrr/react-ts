@@ -13,12 +13,12 @@ export const NewTodoForm = (
     handleClick
   }: NewTodoFormProps) => {
   return <div>
-    <input type="text"
-           placeholder="New Todo"
-           value={value}
-           onChange={onChange}
+    <input
+      type="text"
+      placeholder="New Todo"
+      value={value}
+      onChange={onChange}
     />
-
-    <button onClick={() => handleClick}>Add Todo</button>
+    <button onClick={ handleClick}>Add Todo</button>
   </div>
 }

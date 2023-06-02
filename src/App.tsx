@@ -13,19 +13,20 @@ type ITodo = {
 
 function App() {
   const [text, setText] = useState("");
-  const [todos, setTodos] = useState(Array<string>)
+  const [todos, setTodos] = useState <string[]>([])
 
   const handleInput = (event:  React.ChangeEvent<HTMLInputElement>):void => {
       setText(event.target.value)
   }
   const addTodo = () => {
+    console.log('click');
     setTodos([text, ...todos])
     setText("")
   }
   return (
     <div className="App">
       <TodoItem
-        key="01"
+        key="1"
         id="1"
         completed={false}
         title="test-todo"

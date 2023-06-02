@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import './style/App.css';
-import {TodoItem} from "./components/TodoItem";
+
+import {TodoItem} from "./components/Todo/TodoItem";
+import {NewTodoForm} from "./components/Todo/NewTodoForm";
 
 // заготовка на будущею тудушку
 type ITodo = {
@@ -10,17 +12,16 @@ type ITodo = {
 }
 
 function App() {
-  const [text, setSText] = useState("");
-  // если сложная структура  как обьект или массив я использую дженерик
+  const [text, setText] = useState("");
   const [todos, setTodos] = useState(Array<string>)
-  // тоже самое
-  // const [todos, setTodos] = useState( [""])
-  const [] = useState<[string] | null >(null)
-  // если мы работаем с обьектами то чаже всего будет такая запись для начального стейта
-  const [] = useState<ITodo | null>(null)
-  // можео так
-  // const [] = useState<ITodo>({} as ITodo)
 
+  const handleInput = (event:  React.ChangeEvent<HTMLInputElement>):void => {
+      setText(event.target.value)
+  }
+  const addTodo = () => {
+    setTodos([text, ...todos])
+    setText("")
+  }
   return (
     <div className="App">
       <TodoItem
@@ -29,6 +30,12 @@ function App() {
         completed={false}
         title="test-todo"
         style={{border: "2px solid white", borderRadius: "2px"}}
+      />
+
+      <NewTodoForm
+        value = {text}
+        onChange={handleInput}
+        handleClick={addTodo}
       />
     </div>
   );

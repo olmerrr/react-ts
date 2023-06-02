@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import './style/App.css';
 
-import {TodoItem} from "./components/Todo/TodoItem";
-import {NewTodoForm} from "./components/Todo/NewTodoForm";
+import {TodoItem} from "./components/TodoList/TodoItem";
+import {NewTodoForm} from "./components/TodoList/NewTodoForm";
 
 // заготовка на будущею тудушку
 type ITodo = {

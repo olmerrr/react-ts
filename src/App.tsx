@@ -1,48 +1,43 @@
-import React, {useEffect, useState} from 'react';
-import {Todo} from "./types";
+import {useState} from 'react';
 
+import {Todo} from './types';
+import {NewTodoForm} from './components/TodoList/NewTodoForm'
+import {TodoList} from './components/TodoList/TodoList'
 import './style/App.css';
 
-import {TodoItem} from "./components/TodoList/TodoItem";
-import {NewTodoForm} from "./components/TodoList/NewTodoForm";
-
-
 function App() {
-  const [todos, setTodos] = useState <Todo[]>([])
+  const [todos, setTodos] = useState<Todo[]>([]);
 
-  // const handleInput = (event:  React.ChangeEvent<HTMLInputElement>):void => {
-  //     setText(event.target.value)
-  // }
   const addTodo = (text: string) => {
-
-    const newTodos: Todo = {
+    const newTodo: Todo = {
       id: new Date().toString(),
-      title: "Title1234",
-      completed: false
-    };
-    setTodos([newTodos, ...todos])
-    // setText("")
+      title: text,
+      completed: false,
+    }
+    setTodos([newTodo, ...todos]);
   }
 
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos/")
-      .then(res => res.json())
-      // data: Todo[] - поможет нам понять что мы получим
-      .then((data: Todo[]) => {
-        setTodos(data)
-      })
-  }, [])
+  const toggleTodo = (id: Todo['id']) => {
+    setTodos(todos.map(todo => {
+      if (todo.id !== id) return todo;
+
+      return {
+        ...todo,
+        completed: !todo.completed,
+      }
+    }))
+  }
+
+  const removeTodo = (id: Todo['id']) => {
+    setTodos(todos.filter(todo => todo.id !== id))
+  }
+
   return (
     <div className="App">
-      <TodoItem
-        key="1"
-        id="1"
-        completed={false}
-        title="test-todo"
-        style={{border: "2px solid white", borderRadius: "2px"}}
+      <NewTodoForm
+        handleClick={addTodo}
       />
-
-      <NewTodoForm handleClick={addTodo}/>
+      <TodoList list={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
     </div>
   );
 }

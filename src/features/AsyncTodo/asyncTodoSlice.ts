@@ -2,7 +2,7 @@ import {Todo} from "../../types";
 import {createSlice} from "@reduxjs/toolkit";
 import {createTodo, fetchAllTodos} from "./todosAsyncActions";
 
-type TodoSlice = {
+export type TodoSlice = {
   status: "idle" | "loading" | "finished" | "error",
   list: Todo[];
 }

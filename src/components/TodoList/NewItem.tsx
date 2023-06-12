@@ -22,7 +22,7 @@ export const NewItem = ({placeholder,  handleClick }: NewItemProps) => {
         placeholder={placeholder}
         ref={inputRef}
       />
-      <button onClick={onClick}>Add todo</button>
+      <button className="btn ml-1" onClick={onClick}>Add todo</button>
     </>
   );
 };

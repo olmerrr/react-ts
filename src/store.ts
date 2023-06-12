@@ -1,6 +1,7 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import todoReducer from "./features/Todo/todoSlice";
 
+// нужен для селекторов(гетеров)
 export type RootState = ReturnType<typeof store.getState>
 // тоже самое
 // export type RootState = ReturnType<typeof rootReducer>

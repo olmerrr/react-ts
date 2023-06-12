@@ -16,7 +16,7 @@ export const TodoItem = (
   }:TodoItemProps
 ) => {
   return (
-    <li className="todo-item" id={id}>
+    <li className="todo-item" id={id.toString()}>
       <input type="checkbox" checked={completed} onChange={() => toggleTodo(id)}/>
       <span>{title}</span>
       <span onClick={() => removeTodo(id)}>&times;</span>

@@ -17,3 +17,18 @@ code {
 ul, li {
   list-style: none;
 }
+
+.btn {
+  border: none;
+  border-radius: 2px;
+  width: 80px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.ml-1 {
+  margin-left: 10px;;
+}
+.mr-1 {
+  margin-right: 10px;;
+}

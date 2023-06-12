@@ -1,11 +1,11 @@
-import {selectAsyncTodos} from "./asyncTodoSelectors";
 import {useSelector} from "react-redux";
-import {useAppDispatch} from "../../redux-hook";
-import {Todo} from "../../types";
-import {removeTodo, toggleTodo} from "../Todo/todoSlice";
-import {TodoItem} from "../../components/TodoList/TodoItem";
 import {useEffect} from "react";
-import {fetchAllTodos} from "./todosAsyncActions";
+import {Todo} from "../../types";
+
+import {selectAsyncTodos} from "./asyncTodoSelectors";
+import {useAppDispatch} from "../../redux-hook";
+import {removeTodo, toggleTodo,fetchAllTodos} from "./todosAsyncActions";
+import {TodoItem} from "../../components/TodoList/TodoItem";
 
 export const AsyncTodoList = () => {
   const {list} = useSelector(selectAsyncTodos);

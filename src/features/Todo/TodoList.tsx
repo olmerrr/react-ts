@@ -1,9 +1,10 @@
 import {TodoItem} from "../../components/TodoList/TodoItem";
-import {useAppDispatch} from "../../redux-hook";
 import {Todo} from "../../types";
-import {removeTodo, toggleTodo} from "./todoSlice";
+
+import {useAppDispatch} from "../../redux-hook";
 import {selectAllTodos} from "./todoSelectors";
 import {useSelector} from "react-redux";
+import {removeTodo, toggleTodo} from "./todoSlice";
 
 
 export const TodoList = () => {

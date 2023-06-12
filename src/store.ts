@@ -1,5 +1,6 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import todoReducer from "./features/Todo/todoSlice";
+import asyncTodoReducer from "./features/AsyncTodo/asyncTodoSlice";
 
 // нужен для селекторов(гетеров)
 export type RootState = ReturnType<typeof store.getState>
@@ -10,7 +11,8 @@ export type AppDispatch = typeof store.dispatch;
 
 // комбинирую редюсеры
 const rootReducer = combineReducers({
-  todos: todoReducer
+  todos: todoReducer,
+  asyncTodos: asyncTodoReducer
 });
 // создаю стор
 export const store = configureStore({

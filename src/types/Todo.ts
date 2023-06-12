@@ -2,5 +2,5 @@ export type Todo = {
   id: string,
   title: string,
   completed: boolean,
-  userId?: number
+  userId?: number | string
 }

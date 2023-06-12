@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSlice, nanoid, PayloadAction} from "@reduxjs/toolkit";
 import {Todo} from "types";
 
 const initialState:Todo[] = [];
@@ -10,7 +10,7 @@ const todoSlice = createSlice({
   reducers: {
     addTodo: (state, action:PayloadAction<string>) => {
       const newTodo: Todo = {
-        id: new Date().toString(),
+        id: nanoid(),
         title: action.payload,
         completed: false,
       }

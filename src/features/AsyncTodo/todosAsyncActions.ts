@@ -15,7 +15,7 @@ export const createTodo = createAsyncThunk(
   async (text:string) => {
     const newTodo: Required<Omit<Todo, "id">> = {
       title: text,
-      userId: 1,
+      userId: 2,
       completed: false
     }
     const response = await fetch("https://jsonplaceholder.typicode.com/todos", {

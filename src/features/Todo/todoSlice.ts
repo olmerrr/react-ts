@@ -25,7 +25,7 @@ const todoSlice = createSlice({
     },
     // PayloadAction - это то что наша ф-я должна получить в параметрах
     removeTodo: (state, action:PayloadAction<Todo["id"]>) => {
-      state.filter(todo => todo.id !== action.payload)
+      return state.filter(todo => todo.id !== action.payload)
     }
   }
 });

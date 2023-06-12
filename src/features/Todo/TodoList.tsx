@@ -14,8 +14,8 @@ export const TodoList = () => {
   return <>
     {list.map((todo) => <ul><TodoItem
       key={todo.id}
-      toggleTodo={toggleTodo}
-      removeTodo={removeTodo}
+      toggleTodo={handleToggleTodo}
+      removeTodo={handleRemoveTodo}
       {...todo}
     /></ul>)}
   </>
